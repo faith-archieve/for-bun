@@ -1,0 +1,17 @@
+version: '1'
+
+services:
+  frontend:
+    container_name: 'test-frontend'
+    build:
+      context: .
+    ports:
+      - "80:8080"
+    volumes:
+      - ./src:/src
+    networks:
+      - test-backend-docker_test-network
+
+networks:
+  test-backend-docker_test-network:
+    external: true
